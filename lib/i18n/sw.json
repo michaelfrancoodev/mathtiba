@@ -22,8 +22,10 @@
     "howStep3Title": "Tibu na thibitisha",
     "howStep3Body": "Mwanafunzi anafanya mazoezi kwa mfumo wa TENDO + SABABU, kisha anapimwa upya kwa muundo tofauti wa nje lakini dhana ile ile chini.",
     "aboutTitle": "Kuhusu MathTiba",
-    "aboutBody": "Katika CSEE 2024, asilimia 74.65 ya watahiniwa walifeli Hisabati ya Msingi — mtindo uliodumu kwa miaka saba. MathTiba haidai kutatua tatizo la elimu ya hisabati Tanzania. Inadai kitu kidogo na kinachothibitika: inaweza kubadilisha maana ya kufeli, kutoka nambari moja kwenda dhana potofu inayofuatiliwa na yenye ushahidi, pamoja na intervention iliyolengwa.",
-    "aboutPrinciple": "AI haifanyi hisabati kamwe. Uthibitishaji wote wa namba ni deterministic (SymPy / hesabu sahihi). Miundo ya lugha, inapotumika, imewekewa mipaka kwenye maelezo na msamiati pekee — kamwe kuamua kama jibu ni sahihi."
+    "aboutBody": "Katika CSEE 2024, asilimia 74.65 ya watahiniwa walifeli Hisabati ya Msingi — mtindo uliodumu kwa miaka saba, na matokeo ya 2025 (yaliyotolewa Januari 2026) yanaonyesha asilimia 73.55 bado wanafeli. MathTiba haidai kutatua tatizo la elimu ya hisabati Tanzania. Inadai kitu kidogo na kinachothibitika: inaweza kubadilisha maana ya kufeli, kutoka nambari moja kwenda dhana potofu inayofuatiliwa na yenye ushahidi, pamoja na intervention iliyolengwa.",
+    "aboutPrinciple": "AI haifanyi hisabati kamwe. Uthibitishaji wote wa namba ni deterministic (hesabu sahihi, inayolingana na SymPy). Tabaka jingine la hiari la kizazi (generative) linaweza kueleza kwa maneno matokeo yaliyokwisha hesabiwa — kamwe halijaulizwa kuthibitisha au kuhesabu chochote.",
+    "aboutResearchTitle": "Imejengwa juu ya utafiti uliopo, siyo kubuniwa upya",
+    "aboutResearchBody": "Wazo kwamba makosa ya wanafunzi yanafuata kanuni thabiti zinazoweza kutambuliwa, siyo kelele ya bahati mbaya, linatokana na nadharia ya Payne & Squibb ya 1990 ya \"mal-rules\" ya makosa ya aljebra (Cognitive Science, 14(3)). Utafiti wa hivi karibuni unaotumia miundo mikubwa ya lugha kwa tatizo hili hili (mfano GPT-4 kwenye dhana potofu za aljebra za shule za kati) unaripoti usahihi wa karibu asilimia 84 kwenye kesi zisizo wazi. MathTiba kwa makusudi inaepuka kuuliza modeli ya lugha kukisia dhana potofu kutoka maandishi huru: kila dhana potofu inaonekana moja kwa moja kutoka kwenye jibu potofu lililotengenezwa mapema alilochagua mwanafunzi, ndiyo sababu validation harness inafikia asilimia 96 ya kugundua kwa asilimia 0 ya madai ya uongo ndani ya wigo wake — dai finyu zaidi kuliko \"AI inaweza kugundua dhana potofu yoyote\", na dai linaloweza kutetewa zaidi."
   },
   "diagnostic": {
     "title": "UCHUNGUZI",
@@ -79,7 +81,11 @@
     "sameMisconception": "muundo tofauti, dhana ile ile",
     "practiceAgain": "Fanya mazoezi tena",
     "backHome": "Rudi mwanzo",
-    "integrity": "Uaminifu"
+    "integrity": "Uaminifu",
+    "aiSummary": "MUHTASARI WA KIPINDI",
+    "aiSummaryLoading": "Inaandika muhtasari…",
+    "aiGenerated": "Imezalishwa na AI",
+    "staticSummary": "Muhtasari"
   },
   "validation": {
     "title": "UTHIBITISHO WA KIHANDISI",

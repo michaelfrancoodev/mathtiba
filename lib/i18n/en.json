@@ -22,8 +22,10 @@
     "howStep3Title": "Fix and verify",
     "howStep3Body": "The student practises with a structured ACTION + REASON workspace, then is re-tested with a different surface but the same underlying misconception.",
     "aboutTitle": "About MathTiba",
-    "aboutBody": "In CSEE 2024, 74.65% of candidates failed Basic Mathematics — a pattern that has held for seven years. MathTiba does not claim to fix Tanzanian mathematics education. It claims something smaller and provable: it can change what a failure means, from a single number to a traceable, evidence-linked misconception with a targeted intervention.",
-    "aboutPrinciple": "AI never performs mathematics. All numerical verification is deterministic (SymPy / exact arithmetic). Language models, where used, are restricted to explanation and phrasing — never to deciding whether an answer is correct."
+    "aboutBody": "In CSEE 2024, 74.65% of candidates failed Basic Mathematics — a pattern that has held for seven years, and the 2025 results (released January 2026) show 73.55% still failing. MathTiba does not claim to fix Tanzanian mathematics education. It claims something smaller and provable: it can change what a failure means, from a single number to a traceable, evidence-linked misconception with a targeted intervention.",
+    "aboutPrinciple": "AI never performs mathematics. All numerical verification is deterministic (exact rational arithmetic, mirrored in SymPy). A separate, optional generative layer may phrase an already-computed diagnostic summary in plain language — it is never asked to verify or compute anything.",
+    "aboutResearchTitle": "Grounded in existing research, not invented from scratch",
+    "aboutResearchBody": "The idea that student errors follow consistent, diagnosable rules rather than random noise goes back to Payne & Squibb's 1990 \"mal-rules\" theory of algebra errors (Cognitive Science, 14(3)). Recent work applying large language models to this same problem (e.g. GPT-4 on middle-school algebra misconceptions) reports around 84% detection accuracy on ambiguous cases. MathTiba deliberately avoids asking a language model to infer a misconception from free text: every misconception is observed directly from a pre-designed distractor a student chose, which is why the engineering validation harness reaches 96% recovery with 0% false positives within its scoped domain — a narrower claim than \"AI can detect any misconception\", and a more defensible one."
   },
   "diagnostic": {
     "title": "DIAGNOSTIC",
@@ -79,7 +81,11 @@
     "sameMisconception": "different surface, same misconception",
     "practiceAgain": "Practise again",
     "backHome": "Back to home",
-    "integrity": "Integrity"
+    "integrity": "Integrity",
+    "aiSummary": "SESSION SUMMARY",
+    "aiSummaryLoading": "Writing a summary…",
+    "aiGenerated": "AI-generated",
+    "staticSummary": "Summary"
   },
   "validation": {
     "title": "ENGINEERING VALIDATION",

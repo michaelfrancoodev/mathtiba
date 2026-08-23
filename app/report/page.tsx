@@ -9,7 +9,7 @@ import misconceptionsData from "@/data/misconceptions.json";
 import { scoreSkills } from "@/lib/misconception-engine";
 import { sessionIntegrity } from "@/lib/integrity";
 import type { Attempt, Step, Misconception } from "@/lib/types";
-
+import type { RootCause } from "@/lib/root-cause";
 type Session = {
   misconceptionId: string;
   skill: string;
@@ -23,27 +23,89 @@ function mmss(ms: number) {
 }
 
 export default function Report() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const [session, setSession] = useState<Session | null>(null);
   const [before, setBefore] = useState(0);
   const [resolved, setResolved] = useState(false);
   const [integrity, setIntegrity] = useState<"clean" | "review">("clean");
   const [ready, setReady] = useState(false);
+  const [rootCause, setRootCause] = useState<RootCause | null>(null);
+  const [summary, setSummary] = useState<{ text: string; source: "ai" | "fallback" } | null>(null);
+  const [summaryLoading, setSummaryLoading] = useState(false);
 
   useEffect(() => {
     const s = load<Session>("session");
     const attempts = load<Attempt[]>("attempts") ?? [];
     const rt = load<{ resolved: boolean }>("retest");
+    const rc = load<RootCause>("rootCause");
 
     setSession(s);
     setResolved(rt?.resolved ?? false);
     setIntegrity(sessionIntegrity(attempts));
+    setRootCause(rc);
     if (s) {
       const score = scoreSkills(attempts).find((x) => x.skill === s.skill);
       setBefore(score?.percent ?? 0);
     }
     setReady(true);
   }, []);
+
+  // Fetch the (optional) AI-generated narrative once the base report data
+  // is ready. This call touches ONLY the generative layer — it is given
+  // already-computed facts and asked to phrase them, never to compute or
+  // verify anything. It degrades to a deterministic template automatically
+  // if no API key is configured or the request fails for any reason.
+  useEffect(() => {
+    if (!ready || !session) return;
+    const mcForSummary = (misconceptionsData as Misconception[]).find(
+      (m) => m.id === session.misconceptionId
+    );
+    const graded = session.steps.filter((s) => s.reasonQuality !== null);
+    const total = graded.length;
+    const strong = graded.filter(
+      (s) => s.reasonQuality === "conceptual" || s.reasonQuality === "procedural"
+    ).length;
+    const afterVal = resolved ? Math.max(before, 82) : before;
+    const chainLabels = rootCause?.chain?.length
+      ? rootCause.chain.map((n) => t(`skills.${n.skillId}`))
+      : [t(`skills.${session.skill}`)];
+
+    let cancelled = false;
+    setSummaryLoading(true);
+    fetch("/api/explain", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        locale,
+        skill: session.skill,
+        skillLabel: t(`skills.${session.skill}`),
+        misconceptionId: session.misconceptionId,
+        misconceptionQuote: mcForSummary?.quote ?? "",
+        chainLabels,
+        before,
+        after: afterVal,
+        actionScore: `${total}/${total}`,
+        reasonScore: `${strong}/${total}`,
+        resolved,
+      }),
+    })
+      .then((r) => r.json())
+      .then((data) => {
+        if (cancelled) return;
+        if (data.ok) setSummary({ text: data.text, source: data.source });
+      })
+      .catch(() => {
+        /* silent — the deterministic report above already stands on its own */
+      })
+      .finally(() => {
+        if (!cancelled) setSummaryLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ready, session, resolved, before, rootCause, locale]);
 
   if (!ready) return null;
 
@@ -149,6 +211,21 @@ export default function Report() {
             </div>
           </div>
         )}
+
+        <div className="mt-6 rounded-lg border border-line p-6">
+          <div className="flex items-center justify-between">
+            <Eyebrow>{t("report.aiSummary")}</Eyebrow>
+            {summary && (
+              <span className="text-[10px] uppercase tracking-wide text-muted">
+                {summary.source === "ai" ? t("report.aiGenerated") : t("report.staticSummary")}
+              </span>
+            )}
+          </div>
+          {summaryLoading && !summary && (
+            <p className="mt-3 text-sm text-muted">{t("report.aiSummaryLoading")}</p>
+          )}
+          {summary && <p className="mt-3 text-sm leading-relaxed">{summary.text}</p>}
+        </div>
 
         <div className="mt-6 flex items-center justify-between rounded-lg border border-line px-6 py-4">
           <Eyebrow>{t("report.status")}</Eyebrow>

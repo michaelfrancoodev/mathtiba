@@ -18,6 +18,11 @@ export default function About() {
           <p className="mt-2 text-sm leading-relaxed">{t("home.aboutPrinciple")}</p>
         </Card>
 
+        <Card className="mt-6 p-6">
+          <Eyebrow>{t("home.aboutResearchTitle")}</Eyebrow>
+          <p className="mt-2 text-sm leading-relaxed text-muted">{t("home.aboutResearchBody")}</p>
+        </Card>
+
         <p className="mt-10 text-xs leading-relaxed text-muted">{t("home.footer")}</p>
       </main>
     </>

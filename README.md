@@ -68,6 +68,54 @@ pipeline end-to-end.
 
 ---
 
+## Research basis (not invented from scratch)
+
+The claim that student errors follow **consistent, diagnosable rules**
+rather than random noise is not new — it goes back to Payne & Squibb's
+1990 "mal-rules" theory of algebra errors (*Cognitive Science*,
+14(3):445–481), which is still the foundational citation for
+rule-based misconception modeling today (e.g. Rice University's 2026
+`MalAlgoLib` benchmark builds its algebra misconception taxonomy
+directly on it). MathTiba's `ALG-BRA-DIST` misconception
+("distribution as addition", `3(x+4) → 3x+4`) is, almost verbatim, mal-rule
+M1 from that taxonomy.
+
+Recent work applying **LLMs directly** to misconception detection
+(e.g. GPT-4 evaluated on a 55-misconception middle-school algebra
+benchmark) reports **~84% accuracy**, with explicitly weaker
+performance on ambiguous categories like ratios and proportional
+reasoning. MathTiba deliberately does **not** ask a language model to
+*infer* a misconception from free-text reasoning — every misconception
+is observed directly from a pre-designed distractor the student chose.
+That narrower, more mechanical claim is why the engineering validation
+harness in this repository reaches **96% recovery with 0% false
+positives** within its scoped domain (8 misconceptions, one skill
+chain) — a smaller claim than "AI can detect any misconception," and a
+considerably more defensible one for a hackathon judge to check.
+
+## Generative AI layer (optional, additive, never in the correctness path)
+
+`app/api/explain` is a genuine LLM integration (Anthropic Claude via
+`ANTHROPIC_API_KEY`) that powers the **SESSION SUMMARY** panel on
+`/report`. It is given only *already-computed* facts — scores,
+percentages, the skill chain, resolved/unresolved status — and asked
+to phrase them into a short, warm paragraph in the selected language.
+It is never asked to verify, compute, or judge anything mathematical.
+
+This is deliberately optional and gracefully degrading:
+
+- **No key set** → `/report` shows an equivalent deterministic,
+  data-driven summary (same facts, templated instead of generated).
+- **Key set but the call fails** (bad key, network issue, timeout) →
+  same deterministic fallback, silently, with no error shown to the
+  user.
+- **Key set and working** → a genuinely AI-generated paragraph,
+  labeled "AI-generated" in the UI so it's never presented as more
+  authoritative than it is.
+
+Both paths were tested against a live `next dev` server (with no key,
+and with a deliberately invalid key) — see `.env.example`.
+
 ## Evidence discipline: explicit vs. inferred
 
 Every one of the 8 MVP misconceptions records whether NECTA's own CIRA
@@ -264,10 +312,29 @@ you have unrestricted network access, or self-host the font files.
 
 ## Sources
 
-NECTA — Candidates' Item Response Analysis (CIRA), Basic Mathematics
-041, reports 2018–2024 · NECTA CSEE 2023/2024 results · NECTA FTNA
-Examination Format 043 Mathematics, 2026 · Taasisi ya Elimu Tanzania
-(TIE) — Mathematics Syllabus, Form I–IV, 2023.
+- NECTA — Candidates' Item Response Analysis (CIRA), Basic Mathematics
+  041, reports 2018-2024, including the CSEE 2022 report explicitly
+  documenting the LCM/GCF confusion this project's `NUM-LCM-GCF`
+  misconception is built on ("candidates multiplied the given
+  fractions by the Greatest Common Factor (GCF) instead of the Lowest
+  Common Multiple (LCM)").
+- NECTA CSEE 2024 results: 25.35% pass rate in Basic Mathematics ->
+  **74.65% failed** (The Citizen, 24 Jan 2025; The Guardian, 23 Jan
+  2025 - both citing NECTA Executive Secretary Dr Said Ally Mohamed).
+- NECTA CSEE 2025 results (released 31 Jan 2026): 26.45% pass rate ->
+  **73.55% failed**, continuing the multi-year pattern (The Citizen,
+  1 Feb 2026).
+- NECTA FTNA Examination Format 043 Mathematics, 2026.
+- Taasisi ya Elimu Tanzania (TIE) - Mathematics Syllabus, Form I-IV,
+  2023.
+- Payne, S.J. & Squibb, H.R. (1990). "Algebra Mal-Rules and Cognitive
+  Accounts of Error." Cognitive Science, 14(3), 445-481.
+- Liu, N. et al. (2026). "Misconception Acquisition Dynamics in Large
+  Language Models" (MalAlgoLib), building on the Payne & Squibb
+  mal-rules taxonomy.
+- GPT-4 middle-school algebra misconception benchmark (Warwick
+  EduPort/EduFund project summary): 55 misconceptions, 220 diagnostic
+  examples, 83.9% detection accuracy when topic-constrained.
 
 ---
 
