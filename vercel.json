@@ -1,8 +1,12 @@
 {
   "functions": {
-    "engine/verify.py": { "runtime": "python3.12", "maxDuration": 10 }
+    "engine/verify.py": { 
+      "runtime": "@vercel/python", 
+      "maxDuration": 10 
+    }
   },
   "rewrites": [
     { "source": "/api/verify-py", "destination": "/engine/verify" }
   ]
 }
+
