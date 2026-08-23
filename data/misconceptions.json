@@ -1,0 +1,113 @@
+[
+  {
+    "id": "NUM-LCM-GCF",
+    "skill": "NUM-OPS",
+    "prerequisite": null,
+    "type": "concept_confusion",
+    "evidence": [
+      { "source": "NECTA CIRA", "year": 2019, "type": "explicit" },
+      { "source": "NECTA CIRA", "year": 2020, "type": "explicit" }
+    ],
+    "quote": "Candidates confused the lowest common multiple with the greatest common factor.",
+    "observable_patterns": ["selects GCF when LCM is required", "selects smallest common value"],
+    "diagnostic_items": ["ITEM-01", "ITEM-02"],
+    "intervention": ["multiples_vs_factors", "number_line_model"],
+    "mastery_rule": { "correct_attempts": 3, "different_contexts": 2 }
+  },
+  {
+    "id": "FRA-ADD-SEP",
+    "skill": "FRACTIONS",
+    "prerequisite": "NUM-OPS",
+    "type": "concept_confusion",
+    "evidence": [
+      { "source": "NECTA CIRA", "year": 2022, "type": "inferred" },
+      { "source": "NECTA CIRA", "year": 2024, "type": "inferred" }
+    ],
+    "quote": "Candidates added numerators and denominators directly.",
+    "observable_patterns": ["a/b + c/d = (a+c)/(b+d)", "no common denominator sought"],
+    "diagnostic_items": ["ITEM-03", "ITEM-04", "ITEM-05"],
+    "intervention": ["area_model", "common_denominator"],
+    "mastery_rule": { "correct_attempts": 3, "different_contexts": 2 }
+  },
+  {
+    "id": "FRA-CMP-DEN",
+    "skill": "FRACTIONS",
+    "prerequisite": "NUM-OPS",
+    "type": "concept_confusion",
+    "evidence": [{ "source": "NECTA CIRA", "year": 2022, "type": "inferred" }],
+    "quote": "Candidates compared fractions by inspecting denominators alone.",
+    "observable_patterns": ["larger denominator judged larger", "ignores numerator"],
+    "diagnostic_items": ["ITEM-06", "ITEM-07"],
+    "intervention": ["unit_fraction_model", "benchmark_half"],
+    "mastery_rule": { "correct_attempts": 3, "different_contexts": 2 }
+  },
+  {
+    "id": "PCT-ADDITIVE",
+    "skill": "PERCENTAGES",
+    "prerequisite": "FRACTIONS",
+    "type": "concept_confusion",
+    "evidence": [
+      { "source": "NECTA CIRA", "year": 2019, "type": "explicit" },
+      { "source": "NECTA CIRA", "year": 2024, "type": "explicit" }
+    ],
+    "quote": "Candidates applied successive percentages to the original total.",
+    "observable_patterns": ["percentage of original, not remainder", "adds percentages directly"],
+    "diagnostic_items": ["ITEM-08", "ITEM-09", "ITEM-10"],
+    "intervention": ["bar_model", "successive_base"],
+    "mastery_rule": { "correct_attempts": 3, "different_contexts": 2 }
+  },
+  {
+    "id": "ALG-VAR-NUM",
+    "skill": "ALG-EXPR",
+    "prerequisite": "NUM-OPS",
+    "type": "concept_confusion",
+    "evidence": [{ "source": "NECTA CIRA", "year": 2023, "type": "inferred" }],
+    "quote": "Candidates treated the coefficient as a term to be added.",
+    "observable_patterns": ["3x read as 3 + x", "3x + 4 simplified to 7x"],
+    "diagnostic_items": ["ITEM-11", "ITEM-12", "ITEM-13"],
+    "intervention": ["repeated_addition", "like_terms_sorting"],
+    "mastery_rule": { "correct_attempts": 3, "different_contexts": 2 }
+  },
+  {
+    "id": "ALG-BRA-DIST",
+    "skill": "ALG-BRACKETS",
+    "prerequisite": "ALG-EXPR",
+    "type": "rule_overgeneralization",
+    "evidence": [
+      { "source": "NECTA CIRA", "year": 2021, "type": "explicit" },
+      { "source": "NECTA CIRA", "year": 2024, "type": "explicit" }
+    ],
+    "quote": "Candidates did not distribute the multiplier across all terms in the bracket.",
+    "observable_patterns": ["3(x+4) = 3x + 4", "-(a+b) = -a + b"],
+    "diagnostic_items": ["ITEM-14", "ITEM-15", "ITEM-16"],
+    "intervention": ["area_model_expansion", "sign_tracking"],
+    "mastery_rule": { "correct_attempts": 3, "different_contexts": 2 }
+  },
+  {
+    "id": "EQU-MOVE-FLIP",
+    "skill": "LIN-EQ",
+    "prerequisite": "ALG-EXPR",
+    "type": "rule_overgeneralization",
+    "evidence": [
+      { "source": "NECTA CIRA", "year": 2021, "type": "inferred" },
+      { "source": "NECTA CIRA", "year": 2024, "type": "inferred" }
+    ],
+    "quote": "Candidates transposed the term without changing its sign.",
+    "observable_patterns": ["3x + 5 = 20 gives 3x = 25", "sign applied inconsistently"],
+    "diagnostic_items": ["ITEM-17", "ITEM-18", "ITEM-19"],
+    "intervention": ["balance_model", "two_side_operation"],
+    "mastery_rule": { "correct_attempts": 3, "different_contexts": 2 }
+  },
+  {
+    "id": "EQU-ONE-SIDE",
+    "skill": "LIN-EQ",
+    "prerequisite": "ALG-EXPR",
+    "type": "rule_overgeneralization",
+    "evidence": [{ "source": "NECTA CIRA", "year": 2020, "type": "inferred" }],
+    "quote": "Candidates operated on one side of the equation only.",
+    "observable_patterns": ["4x = 20 gives x = 20", "equality not preserved"],
+    "diagnostic_items": ["ITEM-20", "ITEM-21", "ITEM-22"],
+    "intervention": ["balance_model", "do_the_same_to_both"],
+    "mastery_rule": { "correct_attempts": 3, "different_contexts": 2 }
+  }
+]

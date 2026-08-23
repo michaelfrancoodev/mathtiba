@@ -1,0 +1,14 @@
+[
+  { "id": "SUB_BOTH", "op": "subtract", "needsValue": true,
+    "reasons": ["R_BALANCE", "R_ISOLATE", "R_MOVE_ACROSS", "R_UNKNOWN"] },
+  { "id": "ADD_BOTH", "op": "add", "needsValue": true,
+    "reasons": ["R_BALANCE", "R_ISOLATE", "R_MOVE_ACROSS", "R_UNKNOWN"] },
+  { "id": "DIV_BOTH", "op": "divide", "needsValue": true,
+    "reasons": ["R_BALANCE", "R_ISOLATE", "R_MOVE_ACROSS", "R_UNKNOWN"] },
+  { "id": "MUL_BOTH", "op": "multiply", "needsValue": true,
+    "reasons": ["R_BALANCE", "R_ISOLATE", "R_MOVE_ACROSS", "R_UNKNOWN"] },
+  { "id": "COLLECT", "op": "collect", "needsValue": false,
+    "reasons": ["R_LIKE_TERMS", "R_SIMPLER", "R_SAME_LETTER", "R_UNKNOWN"] },
+  { "id": "EXPAND", "op": "expand", "needsValue": false,
+    "reasons": ["R_DISTRIBUTE_ALL", "R_REMOVE_BRACKET", "R_FIRST_TERM", "R_UNKNOWN"] }
+]

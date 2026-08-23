@@ -1,0 +1,470 @@
+{
+  "FRA-ADD-SEP": {
+    "skill": "FRACTIONS",
+    "mode": "arithmetic",
+    "tasks": [
+      {
+        "id": "IV-FRA-1",
+        "expression": "1/2 + 1/4",
+        "answer": "3/4"
+      },
+      {
+        "id": "IV-FRA-2",
+        "expression": "2/3 + 1/6",
+        "answer": "5/6"
+      },
+      {
+        "id": "IV-FRA-3",
+        "expression": "3/5 + 1/10",
+        "answer": "7/10"
+      }
+    ],
+    "retest": {
+      "id": "RT-FRA-1",
+      "kind": "word",
+      "stemKey": "retestStems.RT-FRA-1",
+      "options": [
+        {
+          "value": "4/6",
+          "correct": false,
+          "misconception": "FRA-ADD-SEP"
+        },
+        {
+          "value": "5/4",
+          "correct": true,
+          "misconception": null
+        },
+        {
+          "value": "1 1/4",
+          "correct": true,
+          "misconception": null
+        },
+        {
+          "value": "3/8",
+          "correct": false,
+          "misconception": null
+        }
+      ],
+      "earlier": "3/4 + 1/2 = 4/6"
+    },
+    "reasonOptions": [
+      {
+        "id": "R_COMMON_DENOM",
+        "quality": "conceptual"
+      },
+      {
+        "id": "R_STRAIGHT_ACROSS",
+        "quality": "misconception",
+        "misconception": "FRA-ADD-SEP"
+      },
+      {
+        "id": "R_MEMORIZED",
+        "quality": "procedural"
+      },
+      {
+        "id": "R_UNKNOWN",
+        "quality": "unknown"
+      }
+    ]
+  },
+  "FRA-CMP-DEN": {
+    "skill": "FRACTIONS",
+    "mode": "arithmetic",
+    "tasks": [
+      {
+        "id": "IV-FRA-4",
+        "expression": "1/3 + 1/4",
+        "answer": "7/12"
+      },
+      {
+        "id": "IV-FRA-5",
+        "expression": "3/8 + 1/2",
+        "answer": "7/8"
+      },
+      {
+        "id": "IV-FRA-6",
+        "expression": "1/5 + 1/2",
+        "answer": "7/10"
+      }
+    ],
+    "retest": {
+      "id": "RT-FRA-1",
+      "kind": "word",
+      "stemKey": "retestStems.RT-FRA-1",
+      "options": [
+        {
+          "value": "4/6",
+          "correct": false,
+          "misconception": "FRA-ADD-SEP"
+        },
+        {
+          "value": "5/4",
+          "correct": true,
+          "misconception": null
+        },
+        {
+          "value": "1 1/4",
+          "correct": true,
+          "misconception": null
+        },
+        {
+          "value": "3/8",
+          "correct": false,
+          "misconception": null
+        }
+      ],
+      "earlier": "3/4 + 1/2 = 4/6"
+    },
+    "reasonOptions": [
+      {
+        "id": "R_COMMON_DENOM",
+        "quality": "conceptual"
+      },
+      {
+        "id": "R_STRAIGHT_ACROSS",
+        "quality": "misconception",
+        "misconception": "FRA-ADD-SEP"
+      },
+      {
+        "id": "R_MEMORIZED",
+        "quality": "procedural"
+      },
+      {
+        "id": "R_UNKNOWN",
+        "quality": "unknown"
+      }
+    ]
+  },
+  "PCT-ADDITIVE": {
+    "skill": "PERCENTAGES",
+    "mode": "arithmetic",
+    "tasks": [
+      {
+        "id": "IV-PCT-1",
+        "expression": "10% of 200",
+        "answer": "20"
+      },
+      {
+        "id": "IV-PCT-2",
+        "expression": "25% of 80",
+        "answer": "20"
+      },
+      {
+        "id": "IV-PCT-3",
+        "expression": "15% of 300",
+        "answer": "45"
+      }
+    ],
+    "retest": {
+      "id": "RT-PCT-1",
+      "kind": "expr",
+      "expr": "20% of 150 = ?",
+      "options": [
+        {
+          "value": "30",
+          "correct": true,
+          "misconception": null
+        },
+        {
+          "value": "170",
+          "correct": false,
+          "misconception": "PCT-ADDITIVE"
+        },
+        {
+          "value": "20",
+          "correct": false,
+          "misconception": null
+        },
+        {
+          "value": "3000",
+          "correct": false,
+          "misconception": null
+        }
+      ],
+      "earlier": "20% of 250 answered as 270"
+    },
+    "reasonOptions": [
+      {
+        "id": "R_OF_REMAINDER",
+        "quality": "conceptual"
+      },
+      {
+        "id": "R_ADD_PERCENTS",
+        "quality": "misconception",
+        "misconception": "PCT-ADDITIVE"
+      },
+      {
+        "id": "R_MEMORIZED",
+        "quality": "procedural"
+      },
+      {
+        "id": "R_UNKNOWN",
+        "quality": "unknown"
+      }
+    ]
+  },
+  "NUM-LCM-GCF": {
+    "skill": "NUM-OPS",
+    "mode": "arithmetic",
+    "tasks": [
+      {
+        "id": "IV-NUM-1",
+        "expression": "LCM(4, 6)",
+        "answer": "12"
+      },
+      {
+        "id": "IV-NUM-2",
+        "expression": "GCF(18, 24)",
+        "answer": "6"
+      },
+      {
+        "id": "IV-NUM-3",
+        "expression": "LCM(8, 12)",
+        "answer": "24"
+      }
+    ],
+    "retest": {
+      "id": "RT-NUM-1",
+      "kind": "expr",
+      "expr": "LCM(9, 15) = ?",
+      "options": [
+        {
+          "value": "45",
+          "correct": true,
+          "misconception": null
+        },
+        {
+          "value": "3",
+          "correct": false,
+          "misconception": "NUM-LCM-GCF"
+        },
+        {
+          "value": "135",
+          "correct": false,
+          "misconception": null
+        },
+        {
+          "value": "24",
+          "correct": false,
+          "misconception": null
+        }
+      ],
+      "earlier": "LCM(12, 18) answered as 6 (GCF)"
+    },
+    "reasonOptions": [
+      {
+        "id": "R_MULTIPLES",
+        "quality": "conceptual"
+      },
+      {
+        "id": "R_CONFUSE_GCF",
+        "quality": "misconception",
+        "misconception": "NUM-LCM-GCF"
+      },
+      {
+        "id": "R_MEMORIZED",
+        "quality": "procedural"
+      },
+      {
+        "id": "R_UNKNOWN",
+        "quality": "unknown"
+      }
+    ]
+  },
+  "ALG-VAR-NUM": {
+    "skill": "ALG-EXPR",
+    "mode": "expression",
+    "tasks": [
+      {
+        "id": "IV-ALG-1",
+        "expression": "2x + 5",
+        "answer": "2x + 5"
+      },
+      {
+        "id": "IV-ALG-2",
+        "expression": "5y + 2y - 3",
+        "answer": "7y - 3"
+      },
+      {
+        "id": "IV-ALG-3",
+        "expression": "6a + 2",
+        "answer": "6a + 2"
+      }
+    ],
+    "retest": {
+      "id": "RT-ALG-1",
+      "kind": "expr",
+      "expr": "Simplify 5m + 9",
+      "options": [
+        {
+          "value": "5m + 9",
+          "correct": true,
+          "misconception": null
+        },
+        {
+          "value": "14m",
+          "correct": false,
+          "misconception": "ALG-VAR-NUM"
+        },
+        {
+          "value": "45m",
+          "correct": false,
+          "misconception": null
+        },
+        {
+          "value": "14",
+          "correct": false,
+          "misconception": null
+        }
+      ],
+      "earlier": "3x + 4 simplified to 7x"
+    }
+  },
+  "ALG-BRA-DIST": {
+    "skill": "ALG-BRACKETS",
+    "mode": "expression",
+    "tasks": [
+      {
+        "id": "IV-BRA-1",
+        "expression": "2(x + 3)",
+        "answer": "2x + 6"
+      },
+      {
+        "id": "IV-BRA-2",
+        "expression": "4(y - 2)",
+        "answer": "4y - 8"
+      },
+      {
+        "id": "IV-BRA-3",
+        "expression": "-3(a + 1)",
+        "answer": "-3a - 3"
+      }
+    ],
+    "retest": {
+      "id": "RT-BRA-1",
+      "kind": "expr",
+      "expr": "Expand 5(x - 2)",
+      "options": [
+        {
+          "value": "5x - 10",
+          "correct": true,
+          "misconception": null
+        },
+        {
+          "value": "5x - 2",
+          "correct": false,
+          "misconception": "ALG-BRA-DIST"
+        },
+        {
+          "value": "x - 10",
+          "correct": false,
+          "misconception": null
+        },
+        {
+          "value": "5x + 10",
+          "correct": false,
+          "misconception": null
+        }
+      ],
+      "earlier": "3(x + 4) = 3x + 4"
+    }
+  },
+  "EQU-MOVE-FLIP": {
+    "skill": "LIN-EQ",
+    "mode": "equation",
+    "tasks": [
+      {
+        "id": "IV-EQU-1",
+        "expression": "3x + 5 = 20",
+        "answer": "x = 5"
+      },
+      {
+        "id": "IV-EQU-2",
+        "expression": "2x + 7 = 19",
+        "answer": "x = 6"
+      },
+      {
+        "id": "IV-EQU-3",
+        "expression": "5x - 4 = 16",
+        "answer": "x = 4"
+      }
+    ],
+    "retest": {
+      "id": "RT-EQU-1",
+      "kind": "word",
+      "stemKey": "retestStems.RT-EQU-1",
+      "options": [
+        {
+          "value": "x = 7",
+          "correct": true,
+          "misconception": null
+        },
+        {
+          "value": "x = 19",
+          "correct": false,
+          "misconception": "EQU-MOVE-FLIP"
+        },
+        {
+          "value": "x = 3",
+          "correct": false,
+          "misconception": null
+        },
+        {
+          "value": "x = 12",
+          "correct": false,
+          "misconception": null
+        }
+      ],
+      "earlier": "3x + 5 = 20 → 3x = 25"
+    }
+  },
+  "EQU-ONE-SIDE": {
+    "skill": "LIN-EQ",
+    "mode": "equation",
+    "tasks": [
+      {
+        "id": "IV-EQU-4",
+        "expression": "4x + 9 = 25",
+        "answer": "x = 4"
+      },
+      {
+        "id": "IV-EQU-5",
+        "expression": "6x - 3 = 21",
+        "answer": "x = 4"
+      },
+      {
+        "id": "IV-EQU-6",
+        "expression": "7x + 2 = 23",
+        "answer": "x = 3"
+      }
+    ],
+    "retest": {
+      "id": "RT-EQU-1",
+      "kind": "word",
+      "stemKey": "retestStems.RT-EQU-1",
+      "options": [
+        {
+          "value": "x = 7",
+          "correct": true,
+          "misconception": null
+        },
+        {
+          "value": "x = 19",
+          "correct": false,
+          "misconception": "EQU-MOVE-FLIP"
+        },
+        {
+          "value": "x = 3",
+          "correct": false,
+          "misconception": null
+        },
+        {
+          "value": "x = 12",
+          "correct": false,
+          "misconception": null
+        }
+      ],
+      "earlier": "4x = 20 → x = 20"
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "app": { "name": "MathTiba", "tagline": "We find the misconception, not the score." },
+  "nav": { "how": "How it works", "validation": "Validation", "about": "About", "exit": "Exit", "back": "Back", "home": "MathTiba" },
+  "home": {
+    "eyebrow": "TANZANIA · SECONDARY MATHEMATICS · FORM I–IV",
+    "lead": "MathTiba identifies the misconception beneath a student's failure, traces it to the prerequisite gap that caused it, and measures whether it is actually gone.",
+    "cta": "Start diagnostic",
+    "ctaMeta": "15 minutes",
+    "stat1": "failed Mathematics · CSEE 2024",
+    "stat2": "diagnostic items",
+    "stat3": "misconceptions detected",
+    "step1": "Diagnose",
+    "step2": "Find the root cause",
+    "step3": "Fix and verify",
+    "footer": "Misconceptions derived from NECTA CIRA reports 2018–2024 · Prerequisite graph from TIE syllabus 2023",
+    "howTitle": "How MathTiba works",
+    "howLead": "A different kind of assessment, built on a national exam problem that has repeated for seven consecutive years.",
+    "howStep1Title": "Diagnose",
+    "howStep1Body": "22 adaptive items. Every wrong answer is not random — each distractor is mapped to one of eight documented misconceptions from NECTA's own exam analysis.",
+    "howStep2Title": "Find the root cause",
+    "howStep2Body": "MathTiba walks a prerequisite graph, not a curriculum list. A Form 2 student failing linear equations is often failing Form 1 fractions instead.",
+    "howStep3Title": "Fix and verify",
+    "howStep3Body": "The student practises with a structured ACTION + REASON workspace, then is re-tested with a different surface but the same underlying misconception.",
+    "aboutTitle": "About MathTiba",
+    "aboutBody": "In CSEE 2024, 74.65% of candidates failed Basic Mathematics — a pattern that has held for seven years. MathTiba does not claim to fix Tanzanian mathematics education. It claims something smaller and provable: it can change what a failure means, from a single number to a traceable, evidence-linked misconception with a targeted intervention.",
+    "aboutPrinciple": "AI never performs mathematics. All numerical verification is deterministic (SymPy / exact arithmetic). Language models, where used, are restricted to explanation and phrasing — never to deciding whether an answer is correct."
+  },
+  "diagnostic": {
+    "title": "DIAGNOSTIC",
+    "counter": "Item {current} of {total}",
+    "notSure": "I'm not sure",
+    "continue": "Continue",
+    "noPressure": "No time pressure. Take as long as you need.",
+    "resultsLater": "Your results are shown only after all items are complete."
+  },
+  "skillMap": {
+    "title": "SKILL MAP",
+    "heading": "Root cause identified.",
+    "sub": "Weak skills trace back to one prerequisite gap.",
+    "results": "SKILL RESULTS",
+    "rootCause": "ROOT CAUSE",
+    "startHere": "Start here",
+    "youStartHere": "You will not start with equations. You start here.",
+    "detected": "Detected misconception",
+    "noWeakness": "No weak skills were detected in this session.",
+    "prereqOf": "prerequisite of {n} weak skills"
+  },
+  "practice": {
+    "title": "PRACTICE {current} OF {total}",
+    "problem": "PROBLEM",
+    "step": "STEP {n}",
+    "action": "1. ACTION",
+    "reason": "2. REASON",
+    "reasonPrompt": "Why did you {action}?",
+    "verify": "Verify step",
+    "firstChoice": "Your first choice is the one recorded.",
+    "initialState": "initial state",
+    "nextStep": "next step",
+    "investigate": "Let's look at this step together."
+  },
+  "retest": {
+    "title": "RE-TEST",
+    "notice": "Different surface. Same underlying misconception.",
+    "transferItem": "TRANSFER ITEM",
+    "earlier": "EARLIER",
+    "now": "NOW",
+    "beforeIntervention": "before intervention",
+    "submit": "Submit answer",
+    "noHints": "No hints are available during re-test."
+  },
+  "report": {
+    "title": "SESSION REPORT",
+    "before": "Before", "after": "After", "steps": "Steps", "duration": "Duration",
+    "action": "ACTION", "reason": "REASON",
+    "actionNote": "All steps verified by symbolic verification.",
+    "reasonNote": "{n} steps showed weak conceptual reasoning.",
+    "misconception": "MISCONCEPTION DETECTED",
+    "status": "STATUS", "resolved": "RESOLVED", "unresolved": "NOT RESOLVED",
+    "sameMisconception": "different surface, same misconception",
+    "practiceAgain": "Practise again",
+    "backHome": "Back to home",
+    "integrity": "Integrity"
+  },
+  "validation": {
+    "title": "ENGINEERING VALIDATION",
+    "heading": "Does the diagnostic find the real root cause?",
+    "notice": "Simulated students with known injected misconceptions. This is engineering validation, not classroom validation.",
+    "recovery": "RECOVERY RATE",
+    "falsePositives": "FALSE POSITIVES",
+    "rootAccuracy": "ROOT-CAUSE ACCURACY",
+    "itemsToDetection": "ITEMS TO DETECTION",
+    "limitations": "KNOWN LIMITATIONS",
+    "tableTitle": "PER-MISCONCEPTION RECALL"
+  },
+  "skills": {
+    "NUM-OPS": "Number operations",
+    "FRACTIONS": "Fractions",
+    "PERCENTAGES": "Percentages",
+    "RATIO": "Ratio and proportion",
+    "ALG-EXPR": "Algebraic expressions",
+    "ALG-BRACKETS": "Brackets and distribution",
+    "LIN-EQ": "Linear equations",
+    "GEOMETRY": "Geometry"
+  },
+  "actions": {
+    "SUB_BOTH": "Subtract from both sides",
+    "ADD_BOTH": "Add to both sides",
+    "DIV_BOTH": "Divide both sides",
+    "MUL_BOTH": "Multiply both sides",
+    "COLLECT": "Collect like terms",
+    "EXPAND": "Expand brackets"
+  },
+  "items": {
+    "ITEM-08": "A trader marks up goods by 30%, then gives a 10% discount on the new price. What is the final price of goods costing 50 000?",
+    "ITEM-10": "A student scores 40 000 in a test. The mark is reduced by 20%, then increased by 12.5%. What is the final mark?"
+  },
+  "retestStems": {
+    "RT-FRA-1": "A bottle holds 3/4 of a litre. You add 1/2 a litre. How much is in the bottle now?",
+    "RT-EQU-1": "Asha has x books. Her brother gives her 4 more, and she now has 11. How many did she start with?"
+  },
+  "reasons": {
+    "R_BALANCE": "Because both sides of an equation must stay equal",
+    "R_ISOLATE": "Because we want the variable on its own",
+    "R_MOVE_ACROSS": "Because the term moves to the other side",
+    "R_LIKE_TERMS": "Because only like terms can be combined",
+    "R_SIMPLER": "Because it makes the expression shorter",
+    "R_SAME_LETTER": "Because the terms share the same letter",
+    "R_DISTRIBUTE_ALL": "Because the multiplier applies to every term inside",
+    "R_REMOVE_BRACKET": "Because the brackets need to go",
+    "R_FIRST_TERM": "Because the multiplier applies to the first term",
+    "R_UNKNOWN": "I don't know"
+  },
+  "arithmeticReasons": {
+    "R_COMMON_DENOM": "Because a common denominator makes the parts comparable",
+    "R_STRAIGHT_ACROSS": "Because you add the tops and add the bottoms",
+    "R_OF_REMAINDER": "Because each percentage applies to the current amount, not the original",
+    "R_ADD_PERCENTS": "Because percentages can just be added directly",
+    "R_MULTIPLES": "Because LCM is the smallest shared multiple of both numbers",
+    "R_CONFUSE_GCF": "Because I found the largest shared factor instead",
+    "R_MEMORIZED": "Because that's the rule I memorized",
+    "R_UNKNOWN": "I don't know"
+  },
+  "arithmetic": {
+    "answer": "1. ANSWER",
+    "answerPrompt": "Compute the result.",
+    "answerPlaceholder": "your answer",
+    "check": "Check answer",
+    "reasonHeading": "2. REASON",
+    "incorrect": "Not quite — check the calculation and try again.",
+    "correct": "Correct."
+  }
+}

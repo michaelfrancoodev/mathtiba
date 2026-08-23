@@ -1,0 +1,58 @@
+{
+  "students": 50,
+  "noiseRate": 0.08,
+  "recoveryRate": 96,
+  "falsePositiveRate": 0,
+  "rootCauseAccuracy": 88,
+  "medianItemsToDetection": 5,
+  "perMisconception": [
+    {
+      "id": "NUM-LCM-GCF",
+      "injected": 10,
+      "detected": 9,
+      "recall": 90
+    },
+    {
+      "id": "FRA-ADD-SEP",
+      "injected": 7,
+      "detected": 6,
+      "recall": 86
+    },
+    {
+      "id": "FRA-CMP-DEN",
+      "injected": 8,
+      "detected": 7,
+      "recall": 88
+    },
+    {
+      "id": "PCT-ADDITIVE",
+      "injected": 12,
+      "detected": 12,
+      "recall": 100
+    },
+    {
+      "id": "ALG-VAR-NUM",
+      "injected": 11,
+      "detected": 11,
+      "recall": 100
+    },
+    {
+      "id": "ALG-BRA-DIST",
+      "injected": 6,
+      "detected": 6,
+      "recall": 100
+    },
+    {
+      "id": "EQU-MOVE-FLIP",
+      "injected": 11,
+      "detected": 11,
+      "recall": 100
+    },
+    {
+      "id": "EQU-ONE-SIDE",
+      "injected": 4,
+      "detected": 4,
+      "recall": 100
+    }
+  ]
+}

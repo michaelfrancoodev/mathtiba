@@ -1,0 +1,177 @@
+[
+  { "id": "ITEM-01", "skill": "NUM-OPS", "kind": "expr", "expr": "LCM(12, 18) = ?",
+    "options": [
+      { "value": "36", "correct": true,  "misconception": null },
+      { "value": "6",  "correct": false, "misconception": "NUM-LCM-GCF" },
+      { "value": "216","correct": false, "misconception": null },
+      { "value": "30", "correct": false, "misconception": null }
+    ] },
+
+  { "id": "ITEM-02", "skill": "NUM-OPS", "kind": "expr", "expr": "GCF(24, 36) = ?",
+    "options": [
+      { "value": "12", "correct": true,  "misconception": null },
+      { "value": "72", "correct": false, "misconception": "NUM-LCM-GCF" },
+      { "value": "6",  "correct": false, "misconception": null },
+      { "value": "4",  "correct": false, "misconception": null }
+    ] },
+
+  { "id": "ITEM-03", "skill": "FRACTIONS", "kind": "expr", "expr": "3/4 + 1/2 = ?",
+    "options": [
+      { "value": "5/4", "correct": true,  "misconception": null },
+      { "value": "4/6", "correct": false, "misconception": "FRA-ADD-SEP" },
+      { "value": "3/8", "correct": false, "misconception": null },
+      { "value": "1/2", "correct": false, "misconception": null }
+    ] },
+
+  { "id": "ITEM-04", "skill": "FRACTIONS", "kind": "expr", "expr": "2/5 + 1/3 = ?",
+    "options": [
+      { "value": "11/15", "correct": true,  "misconception": null },
+      { "value": "3/8",   "correct": false, "misconception": "FRA-ADD-SEP" },
+      { "value": "2/15",  "correct": false, "misconception": null },
+      { "value": "3/15",  "correct": false, "misconception": null }
+    ] },
+
+  { "id": "ITEM-05", "skill": "FRACTIONS", "kind": "expr", "expr": "1/6 + 1/4 = ?",
+    "options": [
+      { "value": "5/12", "correct": true,  "misconception": null },
+      { "value": "2/10", "correct": false, "misconception": "FRA-ADD-SEP" },
+      { "value": "1/24", "correct": false, "misconception": null },
+      { "value": "2/24", "correct": false, "misconception": null }
+    ] },
+
+  { "id": "ITEM-06", "skill": "FRACTIONS", "kind": "compare", "expr": "1/8  ?  1/9",
+    "options": [
+      { "value": "1/8 > 1/9", "correct": true,  "misconception": null },
+      { "value": "1/8 < 1/9", "correct": false, "misconception": "FRA-CMP-DEN" },
+      { "value": "1/8 = 1/9", "correct": false, "misconception": null },
+      { "value": "cannot tell","correct": false, "misconception": null }
+    ] },
+
+  { "id": "ITEM-07", "skill": "FRACTIONS", "kind": "compare", "expr": "3/5  ?  3/7",
+    "options": [
+      { "value": "3/5 > 3/7", "correct": true,  "misconception": null },
+      { "value": "3/5 < 3/7", "correct": false, "misconception": "FRA-CMP-DEN" },
+      { "value": "3/5 = 3/7", "correct": false, "misconception": null },
+      { "value": "cannot tell","correct": false, "misconception": null }
+    ] },
+
+  { "id": "ITEM-08", "skill": "PERCENTAGES", "kind": "word", "stemKey": "items.ITEM-08",
+    "options": [
+      { "value": "58 500", "correct": true,  "misconception": null },
+      { "value": "55 000", "correct": false, "misconception": "PCT-ADDITIVE" },
+      { "value": "65 000", "correct": false, "misconception": null },
+      { "value": "45 000", "correct": false, "misconception": null }
+    ] },
+
+  { "id": "ITEM-09", "skill": "PERCENTAGES", "kind": "expr", "expr": "20% of 250 = ?",
+    "options": [
+      { "value": "50",   "correct": true,  "misconception": null },
+      { "value": "270",  "correct": false, "misconception": "PCT-ADDITIVE" },
+      { "value": "20",   "correct": false, "misconception": null },
+      { "value": "5000", "correct": false, "misconception": null }
+    ] },
+
+  { "id": "ITEM-10", "skill": "PERCENTAGES", "kind": "word", "stemKey": "items.ITEM-10",
+    "options": [
+      { "value": "36 000", "correct": true,  "misconception": null },
+      { "value": "35 000", "correct": false, "misconception": "PCT-ADDITIVE" },
+      { "value": "40 000", "correct": false, "misconception": null },
+      { "value": "30 000", "correct": false, "misconception": null }
+    ] },
+
+  { "id": "ITEM-11", "skill": "ALG-EXPR", "kind": "expr", "expr": "3x when x = 4",
+    "options": [
+      { "value": "12", "correct": true,  "misconception": null },
+      { "value": "7",  "correct": false, "misconception": "ALG-VAR-NUM" },
+      { "value": "34", "correct": false, "misconception": null },
+      { "value": "43", "correct": false, "misconception": null }
+    ] },
+
+  { "id": "ITEM-12", "skill": "ALG-EXPR", "kind": "expr", "expr": "Simplify 3x + 4",
+    "options": [
+      { "value": "3x + 4", "correct": true,  "misconception": null },
+      { "value": "7x",     "correct": false, "misconception": "ALG-VAR-NUM" },
+      { "value": "12x",    "correct": false, "misconception": null },
+      { "value": "7",      "correct": false, "misconception": null }
+    ] },
+
+  { "id": "ITEM-13", "skill": "ALG-EXPR", "kind": "expr", "expr": "Simplify 5y + 2y - 3",
+    "options": [
+      { "value": "7y - 3", "correct": true,  "misconception": null },
+      { "value": "4y",     "correct": false, "misconception": "ALG-VAR-NUM" },
+      { "value": "10y - 3","correct": false, "misconception": null },
+      { "value": "7y + 3", "correct": false, "misconception": null }
+    ] },
+
+  { "id": "ITEM-14", "skill": "ALG-BRACKETS", "kind": "expr", "expr": "Expand 3(x + 4)",
+    "options": [
+      { "value": "3x + 12", "correct": true,  "misconception": null },
+      { "value": "3x + 4",  "correct": false, "misconception": "ALG-BRA-DIST" },
+      { "value": "x + 12",  "correct": false, "misconception": null },
+      { "value": "3x + 7",  "correct": false, "misconception": null }
+    ] },
+
+  { "id": "ITEM-15", "skill": "ALG-BRACKETS", "kind": "expr", "expr": "Expand -(a + b)",
+    "options": [
+      { "value": "-a - b", "correct": true,  "misconception": null },
+      { "value": "-a + b", "correct": false, "misconception": "ALG-BRA-DIST" },
+      { "value": "a - b",  "correct": false, "misconception": null },
+      { "value": "a + b",  "correct": false, "misconception": null }
+    ] },
+
+  { "id": "ITEM-16", "skill": "ALG-BRACKETS", "kind": "expr", "expr": "Expand -2(x - 3)",
+    "options": [
+      { "value": "-2x + 6", "correct": true,  "misconception": null },
+      { "value": "-2x - 6", "correct": false, "misconception": "ALG-BRA-DIST" },
+      { "value": "-2x - 3", "correct": false, "misconception": null },
+      { "value": "2x + 6",  "correct": false, "misconception": null }
+    ] },
+
+  { "id": "ITEM-17", "skill": "LIN-EQ", "kind": "expr", "expr": "Solve 3x + 5 = 20",
+    "options": [
+      { "value": "x = 5",    "correct": true,  "misconception": null },
+      { "value": "x = 25/3", "correct": false, "misconception": "EQU-MOVE-FLIP" },
+      { "value": "x = 15",   "correct": false, "misconception": null },
+      { "value": "x = 20/3", "correct": false, "misconception": null }
+    ] },
+
+  { "id": "ITEM-18", "skill": "LIN-EQ", "kind": "expr", "expr": "Solve 2x - 7 = 9",
+    "options": [
+      { "value": "x = 8", "correct": true,  "misconception": null },
+      { "value": "x = 1", "correct": false, "misconception": "EQU-MOVE-FLIP" },
+      { "value": "x = 16","correct": false, "misconception": null },
+      { "value": "x = 2", "correct": false, "misconception": null }
+    ] },
+
+  { "id": "ITEM-19", "skill": "LIN-EQ", "kind": "expr", "expr": "Solve 5x = 2x + 9",
+    "options": [
+      { "value": "x = 3",  "correct": true,  "misconception": null },
+      { "value": "x = 9/7","correct": false, "misconception": "EQU-MOVE-FLIP" },
+      { "value": "x = 9",  "correct": false, "misconception": null },
+      { "value": "x = 7",  "correct": false, "misconception": null }
+    ] },
+
+  { "id": "ITEM-20", "skill": "LIN-EQ", "kind": "expr", "expr": "Solve 4x = 20",
+    "options": [
+      { "value": "x = 5",  "correct": true,  "misconception": null },
+      { "value": "x = 20", "correct": false, "misconception": "EQU-ONE-SIDE" },
+      { "value": "x = 80", "correct": false, "misconception": null },
+      { "value": "x = 4",  "correct": false, "misconception": null }
+    ] },
+
+  { "id": "ITEM-21", "skill": "LIN-EQ", "kind": "expr", "expr": "Solve x/3 = 6",
+    "options": [
+      { "value": "x = 18", "correct": true,  "misconception": null },
+      { "value": "x = 6",  "correct": false, "misconception": "EQU-ONE-SIDE" },
+      { "value": "x = 2",  "correct": false, "misconception": null },
+      { "value": "x = 9",  "correct": false, "misconception": null }
+    ] },
+
+  { "id": "ITEM-22", "skill": "LIN-EQ", "kind": "expr", "expr": "Solve 3x + 5 = 20 (choose step 2)",
+    "options": [
+      { "value": "3x = 15", "correct": true,  "misconception": null },
+      { "value": "3x = 25", "correct": false, "misconception": "EQU-MOVE-FLIP" },
+      { "value": "8x = 20", "correct": false, "misconception": "ALG-VAR-NUM" },
+      { "value": "x + 5 = 20/3", "correct": false, "misconception": null }
+    ] }
+]

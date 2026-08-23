@@ -1,0 +1,12 @@
+[
+  { "id": "R_BALANCE",        "quality": "conceptual",   "misconception": null },
+  { "id": "R_ISOLATE",        "quality": "procedural",   "misconception": null },
+  { "id": "R_MOVE_ACROSS",    "quality": "misconception","misconception": "EQU-MOVE-FLIP" },
+  { "id": "R_LIKE_TERMS",     "quality": "conceptual",   "misconception": null },
+  { "id": "R_SIMPLER",        "quality": "procedural",   "misconception": null },
+  { "id": "R_SAME_LETTER",    "quality": "misconception","misconception": "ALG-VAR-NUM" },
+  { "id": "R_DISTRIBUTE_ALL", "quality": "conceptual",   "misconception": null },
+  { "id": "R_REMOVE_BRACKET", "quality": "procedural",   "misconception": null },
+  { "id": "R_FIRST_TERM",     "quality": "misconception","misconception": "ALG-BRA-DIST" },
+  { "id": "R_UNKNOWN",        "quality": "unknown",      "misconception": null }
+]

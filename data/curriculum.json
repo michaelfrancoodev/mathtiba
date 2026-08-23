@@ -1,0 +1,10 @@
+[
+  { "id": "NUM-OPS",      "form": 1, "level": 0, "prerequisites": [] },
+  { "id": "FRACTIONS",    "form": 1, "level": 0, "prerequisites": ["NUM-OPS"] },
+  { "id": "PERCENTAGES",  "form": 1, "level": 1, "prerequisites": ["FRACTIONS"] },
+  { "id": "RATIO",        "form": 2, "level": 1, "prerequisites": ["FRACTIONS"] },
+  { "id": "ALG-EXPR",     "form": 2, "level": 2, "prerequisites": ["NUM-OPS", "FRACTIONS"] },
+  { "id": "ALG-BRACKETS", "form": 2, "level": 2, "prerequisites": ["ALG-EXPR"] },
+  { "id": "LIN-EQ",       "form": 2, "level": 3, "prerequisites": ["ALG-EXPR", "ALG-BRACKETS"] },
+  { "id": "GEOMETRY",     "form": 2, "level": 1, "prerequisites": [] }
+]

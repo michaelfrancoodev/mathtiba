@@ -1,0 +1,152 @@
+{
+  "app": { "name": "MathTiba", "tagline": "Tunagundua dhana potofu, si alama." },
+  "nav": { "how": "Inavyofanya kazi", "validation": "Uthibitisho", "about": "Kuhusu", "exit": "Toka", "back": "Rudi", "home": "MathTiba" },
+  "home": {
+    "eyebrow": "TANZANIA · HISABATI YA SEKONDARI · KIDATO I–IV",
+    "lead": "MathTiba inagundua dhana potofu iliyoko chini ya kushindwa kwa mwanafunzi, inatambua pengo la msingi lililoisababisha, na inapima kama imeondoka kweli.",
+    "cta": "Anza uchunguzi",
+    "ctaMeta": "dakika 15",
+    "stat1": "walifeli Hisabati · CSEE 2024",
+    "stat2": "maswali ya uchunguzi",
+    "stat3": "dhana potofu zinazogunduliwa",
+    "step1": "Chunguza",
+    "step2": "Tafuta chanzo",
+    "step3": "Tibu na thibitisha",
+    "footer": "Dhana potofu zimetolewa kwenye ripoti za NECTA CIRA 2018–2024 · Mnyororo wa msingi kutoka Muhtasari wa TIE 2023",
+    "howTitle": "MathTiba inavyofanya kazi",
+    "howLead": "Aina tofauti ya upimaji, iliyojengwa juu ya tatizo la mtihani wa taifa lililojirudia kwa miaka saba mfululizo.",
+    "howStep1Title": "Chunguza",
+    "howStep1Body": "Maswali 22 ya adaptive. Kila jibu lisilo sahihi si la bahati mbaya — kila distractor imeunganishwa na moja ya dhana potofu nane zilizothibitishwa kutoka kwenye uchambuzi wa NECTA wenyewe.",
+    "howStep2Title": "Tafuta chanzo",
+    "howStep2Body": "MathTiba inapita kwenye mnyororo wa mahitaji ya awali, siyo orodha ya mtaala. Mwanafunzi wa Kidato cha Pili anayeshindwa milinganyo mara nyingi anashindwa sehemu za Kidato cha Kwanza.",
+    "howStep3Title": "Tibu na thibitisha",
+    "howStep3Body": "Mwanafunzi anafanya mazoezi kwa mfumo wa TENDO + SABABU, kisha anapimwa upya kwa muundo tofauti wa nje lakini dhana ile ile chini.",
+    "aboutTitle": "Kuhusu MathTiba",
+    "aboutBody": "Katika CSEE 2024, asilimia 74.65 ya watahiniwa walifeli Hisabati ya Msingi — mtindo uliodumu kwa miaka saba. MathTiba haidai kutatua tatizo la elimu ya hisabati Tanzania. Inadai kitu kidogo na kinachothibitika: inaweza kubadilisha maana ya kufeli, kutoka nambari moja kwenda dhana potofu inayofuatiliwa na yenye ushahidi, pamoja na intervention iliyolengwa.",
+    "aboutPrinciple": "AI haifanyi hisabati kamwe. Uthibitishaji wote wa namba ni deterministic (SymPy / hesabu sahihi). Miundo ya lugha, inapotumika, imewekewa mipaka kwenye maelezo na msamiati pekee — kamwe kuamua kama jibu ni sahihi."
+  },
+  "diagnostic": {
+    "title": "UCHUNGUZI",
+    "counter": "Swali {current} kati ya {total}",
+    "notSure": "Sina uhakika",
+    "continue": "Endelea",
+    "noPressure": "Hakuna shinikizo la muda. Chukua muda unaohitaji.",
+    "resultsLater": "Matokeo yataonekana baada ya maswali yote kukamilika."
+  },
+  "skillMap": {
+    "title": "RAMANI YA STADI",
+    "heading": "Chanzo kimegunduliwa.",
+    "sub": "Stadi dhaifu zinarudi kwenye pengo moja la msingi.",
+    "results": "MATOKEO YA STADI",
+    "rootCause": "CHANZO",
+    "startHere": "Anza hapa",
+    "youStartHere": "Hutaanza na milinganyo. Utaanza hapa.",
+    "detected": "Dhana potofu iliyogunduliwa",
+    "noWeakness": "Hakuna stadi dhaifu iliyogunduliwa kwenye kipindi hiki.",
+    "prereqOf": "msingi wa stadi {n} dhaifu"
+  },
+  "practice": {
+    "title": "ZOEZI {current} KATI YA {total}",
+    "problem": "SWALI",
+    "step": "HATUA {n}",
+    "action": "1. TENDO",
+    "reason": "2. SABABU",
+    "reasonPrompt": "Kwa nini {action}?",
+    "verify": "Thibitisha hatua",
+    "firstChoice": "Chaguo lako la kwanza ndilo linalorekodiwa.",
+    "initialState": "hali ya awali",
+    "nextStep": "hatua inayofuata",
+    "investigate": "Hebu tuchunguze hatua hii pamoja."
+  },
+  "retest": {
+    "title": "KUPIMA UPYA",
+    "notice": "Muundo tofauti wa nje. Dhana ile ile chini.",
+    "transferItem": "SWALI LA UHAMISHO",
+    "earlier": "AWALI",
+    "now": "SASA",
+    "beforeIntervention": "kabla ya zoezi",
+    "submit": "Wasilisha jibu",
+    "noHints": "Hakuna dokezo wakati wa kupima upya."
+  },
+  "report": {
+    "title": "RIPOTI YA KIPINDI",
+    "before": "Kabla", "after": "Baada", "steps": "Hatua", "duration": "Muda",
+    "action": "TENDO", "reason": "SABABU",
+    "actionNote": "Hatua zote zimethibitishwa kwa uthibitishaji wa kiishara.",
+    "reasonNote": "Hatua {n} zilionyesha uelewa dhaifu.",
+    "misconception": "DHANA POTOFU ILIYOGUNDULIWA",
+    "status": "HALI", "resolved": "IMEONDOKA", "unresolved": "BADO IPO",
+    "sameMisconception": "muundo tofauti, dhana ile ile",
+    "practiceAgain": "Fanya mazoezi tena",
+    "backHome": "Rudi mwanzo",
+    "integrity": "Uaminifu"
+  },
+  "validation": {
+    "title": "UTHIBITISHO WA KIHANDISI",
+    "heading": "Je, uchunguzi unapata chanzo halisi?",
+    "notice": "Wanafunzi wa sanisi wenye dhana potofu zilizojulikana. Huu ni uthibitisho wa kihandisi, siyo wa darasani.",
+    "recovery": "KIWANGO CHA KUGUNDUA",
+    "falsePositives": "MADAI YA UONGO",
+    "rootAccuracy": "USAHIHI WA CHANZO",
+    "itemsToDetection": "MASWALI HADI UAMUZI",
+    "limitations": "MIPAKA INAYOJULIKANA",
+    "tableTitle": "USAHIHI KWA KILA DHANA POTOFU"
+  },
+  "skills": {
+    "NUM-OPS": "Operesheni za namba",
+    "FRACTIONS": "Sehemu",
+    "PERCENTAGES": "Asilimia",
+    "RATIO": "Uwiano na ulinganifu",
+    "ALG-EXPR": "Vielezi vya aljebra",
+    "ALG-BRACKETS": "Mabano na usambazaji",
+    "LIN-EQ": "Milinganyo ya daraja la kwanza",
+    "GEOMETRY": "Jiometri"
+  },
+  "actions": {
+    "SUB_BOTH": "Toa namba pande zote mbili",
+    "ADD_BOTH": "Ongeza namba pande zote mbili",
+    "DIV_BOTH": "Gawanya pande zote mbili",
+    "MUL_BOTH": "Zidisha pande zote mbili",
+    "COLLECT": "Kusanya vigezo vinavyofanana",
+    "EXPAND": "Sambaza mabano"
+  },
+  "items": {
+    "ITEM-08": "Mfanyabiashara anaongeza bei kwa asilimia 30, kisha anatoa punguzo la asilimia 10 kwenye bei mpya. Bidhaa iliyokuwa 50 000 sasa ni bei gani?",
+    "ITEM-10": "Mwanafunzi amepata alama 40 000. Alama zinapunguzwa kwa asilimia 20, kisha zinaongezwa kwa asilimia 12.5. Alama za mwisho ni ngapi?"
+  },
+  "retestStems": {
+    "RT-FRA-1": "Chupa ina lita 3/4 za maji. Umeongeza lita 1/2. Chupa sasa ina lita ngapi?",
+    "RT-EQU-1": "Asha ana vitabu x. Kaka yake anampa 4 zaidi, sasa ana 11. Alianza na vingapi?"
+  },
+  "reasons": {
+    "R_BALANCE": "Kwa sababu pande zote mbili za mlinganyo lazima zibaki sawa",
+    "R_ISOLATE": "Kwa sababu tunataka kigezo kibaki peke yake",
+    "R_MOVE_ACROSS": "Kwa sababu kipengele kinahamia upande wa pili",
+    "R_LIKE_TERMS": "Kwa sababu ni vipengele vinavyofanana pekee vinavyoweza kuunganishwa",
+    "R_SIMPLER": "Kwa sababu inafanya kielezi kiwe kifupi",
+    "R_SAME_LETTER": "Kwa sababu vipengele vina herufi moja",
+    "R_DISTRIBUTE_ALL": "Kwa sababu kizidishi kinahusu kila kipengele ndani",
+    "R_REMOVE_BRACKET": "Kwa sababu mabano yanatakiwa kuondoka",
+    "R_FIRST_TERM": "Kwa sababu kizidishi kinahusu kipengele cha kwanza",
+    "R_UNKNOWN": "Sijui"
+  },
+  "arithmeticReasons": {
+    "R_COMMON_DENOM": "Kwa sababu kiashiria kimoja kinafanya sehemu zilinganishwe",
+    "R_STRAIGHT_ACROSS": "Kwa sababu unaongeza sehemu za juu na sehemu za chini",
+    "R_OF_REMAINDER": "Kwa sababu kila asilimia inatumika kwa kiasi cha sasa, siyo cha awali",
+    "R_ADD_PERCENTS": "Kwa sababu asilimia zinaweza kuongezwa moja kwa moja",
+    "R_MULTIPLES": "Kwa sababu LCM ni kizidishi kidogo kinachofanana cha namba zote mbili",
+    "R_CONFUSE_GCF": "Kwa sababu nilipata kigawe kikubwa kinachofanana badala yake",
+    "R_MEMORIZED": "Kwa sababu hiyo ndiyo kanuni niliyokariri",
+    "R_UNKNOWN": "Sijui"
+  },
+  "arithmetic": {
+    "answer": "1. JIBU",
+    "answerPrompt": "Hesabu jibu.",
+    "answerPlaceholder": "jibu lako",
+    "check": "Thibitisha jibu",
+    "reasonHeading": "2. SABABU",
+    "incorrect": "Sio sahihi — angalia hesabu tena.",
+    "correct": "Sahihi."
+  }
+}
