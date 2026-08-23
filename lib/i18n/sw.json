@@ -58,7 +58,10 @@
     "firstChoice": "Chaguo lako la kwanza ndilo linalorekodiwa.",
     "initialState": "hali ya awali",
     "nextStep": "hatua inayofuata",
-    "investigate": "Hebu tuchunguze hatua hii pamoja."
+    "investigate": "Hebu tuchunguze hatua hii pamoja.",
+    "getHint": "Pata dokezo",
+    "hintLoading": "Inatafakari dokezo…",
+    "hintLabel": "Dokezo"
   },
   "retest": {
     "title": "KUPIMA UPYA",

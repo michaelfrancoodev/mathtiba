@@ -24,7 +24,7 @@ const FALLBACK = "EQU-MOVE-FLIP";
 const EQUATION_ACTIONS = new Set(["SUB_BOTH", "ADD_BOTH", "DIV_BOTH", "MUL_BOTH"]);
 
 export default function Practice() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const router = useRouter();
 
   const [target, setTarget] = useState<string>(FALLBACK);
@@ -37,6 +37,11 @@ export default function Practice() {
   const [busy, setBusy] = useState(false);
   const [note, setNote] = useState("");
   const [ready, setReady] = useState(false);
+
+  // Hint agent — generative layer, second agent (see app/api/hint). Keyed
+  // by step index so each step gets at most one hint request/response.
+  const [hints, setHints] = useState<Record<number, string>>({});
+  const [hintLoading, setHintLoading] = useState<Record<number, boolean>>({});
 
   // Arithmetic-mode local state
   const [answerInput, setAnswerInput] = useState("");
@@ -214,6 +219,42 @@ export default function Practice() {
     ]);
   }
 
+  async function requestHint(step: Step) {
+    if (hints[step.index] !== undefined || hintLoading[step.index]) return;
+    setHintLoading((h) => ({ ...h, [step.index]: true }));
+
+    const actionLabel =
+      step.actionId === "ANSWER"
+        ? t("arithmetic.answer")
+        : step.actionId
+          ? t(`actions.${step.actionId}`)
+          : "";
+    const reasonNamespace = mode === "arithmetic" ? "arithmeticReasons" : "reasons";
+    const reasonText = step.reasonId ? t(`${reasonNamespace}.${step.reasonId}`) : "";
+
+    let text = "";
+    try {
+      const r = await fetch("/api/hint", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          locale,
+          skillLabel: t(`skills.${bank[target].skill}`),
+          reasonQuality: step.reasonQuality ?? "unknown",
+          actionLabel,
+          reasonText,
+        }),
+      });
+      const data = await r.json();
+      text = data.ok ? data.text : "";
+    } catch {
+      text = "";
+    }
+
+    setHintLoading((h) => ({ ...h, [step.index]: false }));
+    setHints((h) => ({ ...h, [step.index]: text }));
+  }
+
   if (!ready || steps.length === 0) return null;
 
   return (
@@ -242,6 +283,25 @@ export default function Practice() {
                         ? t(`actions.${s.actionId}`)
                         : t("practice.initialState")}
                   </p>
+
+                  {(s.reasonQuality === "procedural" || s.reasonQuality === "misconception") && (
+                    <div className="mt-2">
+                      {hints[s.index] === undefined ? (
+                        <button
+                          onClick={() => requestHint(s)}
+                          disabled={hintLoading[s.index]}
+                          className="text-xs font-medium text-action underline decoration-dotted underline-offset-2 disabled:opacity-50"
+                        >
+                          {hintLoading[s.index] ? t("practice.hintLoading") : t("practice.getHint")}
+                        </button>
+                      ) : hints[s.index] ? (
+                        <p className="text-xs italic text-muted">
+                          <span className="font-semibold not-italic">{t("practice.hintLabel")}:</span>{" "}
+                          {hints[s.index]}
+                        </p>
+                      ) : null}
+                    </div>
+                  )}
                 </div>
                 <span className="text-ok">&#10003;</span>
               </div>

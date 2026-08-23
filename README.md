@@ -93,28 +93,48 @@ positives** within its scoped domain (8 misconceptions, one skill
 chain) — a smaller claim than "AI can detect any misconception," and a
 considerably more defensible one for a hackathon judge to check.
 
-## Generative AI layer (optional, additive, never in the correctness path)
+## Generative AI layer: two agents, optional, additive, never in the correctness path
 
-`app/api/explain` is a genuine LLM integration (Anthropic Claude via
-`ANTHROPIC_API_KEY`) that powers the **SESSION SUMMARY** panel on
-`/report`. It is given only *already-computed* facts — scores,
-percentages, the skill chain, resolved/unresolved status — and asked
-to phrase them into a short, warm paragraph in the selected language.
-It is never asked to verify, compute, or judge anything mathematical.
+Two separate LLM calls (Anthropic Claude via `ANTHROPIC_API_KEY`),
+each scoped to one narrow job and each given only facts a
+deterministic engine already computed:
 
-This is deliberately optional and gracefully degrading:
+| Agent | Route | Triggered when | Job |
+|---|---|---|---|
+| **Explainer** | `app/api/explain` | Student reaches `/report` | Turns already-computed scores/chain/resolved-status into a short warm summary paragraph |
+| **Hint** | `app/api/hint` | On `/practice`, right after a step is scored `procedural` or `misconception` | Asks one Socratic question that sends the student back to their own reasoning — never states or implies the correct answer |
 
-- **No key set** → `/report` shows an equivalent deterministic,
-  data-driven summary (same facts, templated instead of generated).
+Neither agent is told anything it could use to invent a fact: the
+Explainer gets percentages and labels, never raw student text; the
+Hint agent is told only a pre-computed weakness *category*
+(`procedural` vs `misconception`) plus the student's own words, and
+its system prompt explicitly forbids stating the rule or the answer.
+This is why the hint stays useful even when the model is wrong about
+the specific misconception — it never gets the chance to reveal or
+mis-state one.
+
+`app/api/explain` powers the **SESSION SUMMARY** panel on `/report`.
+It is given only *already-computed* facts — scores, percentages, the
+skill chain, resolved/unresolved status — and asked to phrase them
+into a short, warm paragraph in the selected language. It is never
+asked to verify, compute, or judge anything mathematical.
+
+Both agents share the same optional, gracefully-degrading contract:
+
+- **No key set** → deterministic, data-driven text instead (templated
+  summary on `/report`; a category-keyed Socratic template on
+  `/practice`).
 - **Key set but the call fails** (bad key, network issue, timeout) →
   same deterministic fallback, silently, with no error shown to the
   user.
-- **Key set and working** → a genuinely AI-generated paragraph,
-  labeled "AI-generated" in the UI so it's never presented as more
-  authoritative than it is.
+- **Key set and working** → genuinely AI-generated text, and on
+  `/report` it's labeled "AI-generated" in the UI so it's never
+  presented as more authoritative than it is.
 
-Both paths were tested against a live `next dev` server (with no key,
-and with a deliberately invalid key) — see `.env.example`.
+Both routes were tested against a live `next dev` server with no
+`ANTHROPIC_API_KEY` set — confirmed to return `source: "fallback"`
+with a correct, category-matched template every time — see
+`.env.example`.
 
 ## Evidence discipline: explicit vs. inferred
 
@@ -141,7 +161,7 @@ buried in a footnote.
 | `/how`, `/about` | Anyone | How it works, project framing (supporting pages) |
 | `/diagnostic` | Student | 22 adaptive items, one per screen, no time pressure, no feedback until the end |
 | `/skill-map` | Student | Per-skill scores + **ROOT CAUSE IDENTIFIED** with the full prerequisite chain |
-| `/practice` | Student | The core innovation: ACTION (what you did) + REASON (why), graded independently |
+| `/practice` | Student | The core innovation: ACTION (what you did) + REASON (why), graded independently, with an optional AI Socratic hint when a reason is scored weak |
 | `/retest` | Student | A transfer item — different surface, same underlying misconception, no hints |
 | `/report` | Student & teacher | Before/after, ACTION vs REASON split, cited misconception evidence, resolved/unresolved status |
 | `/validation` | Judges | The engineering validation harness results — recovery rate, false positives, root-cause accuracy, per-misconception recall table, and an honest **Known Limitations** panel |
@@ -155,6 +175,8 @@ mathtiba/
 ├── app/                     Next.js App Router — 7 pages + how/about + 2 API routes
 │   ├── api/verify/          equation & expression verification (TS, no external services)
 │   ├── api/check-answer/    fraction / percent / LCM-GCF verification (TS)
+│   ├── api/explain/         generative agent 1 — session-summary narrative (optional LLM)
+│   ├── api/hint/            generative agent 2 — Socratic hint on weak reasoning (optional LLM)
 │   └── ...
 ├── components/ui/           Button, Card, Progress, TopBar, LocaleSwitch
 ├── lib/

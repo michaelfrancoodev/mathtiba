@@ -58,7 +58,10 @@
     "firstChoice": "Your first choice is the one recorded.",
     "initialState": "initial state",
     "nextStep": "next step",
-    "investigate": "Let's look at this step together."
+    "investigate": "Let's look at this step together.",
+    "getHint": "Get a hint",
+    "hintLoading": "Thinking of a hint…",
+    "hintLabel": "Hint"
   },
   "retest": {
     "title": "RE-TEST",
