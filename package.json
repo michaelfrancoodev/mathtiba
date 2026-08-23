@@ -1,7 +1,11 @@
 {
   "name": "mathtiba",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "description": "Mathematical Misconception & Intervention Engine for Tanzanian secondary mathematics — Prometheus August AI Challenge 2026.",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

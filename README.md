@@ -1,5 +1,7 @@
 # MathTiba
 
+[![CI](https://github.com/michaelfrancoodev/mathtiba/actions/workflows/ci.yml/badge.svg)](https://github.com/michaelfrancoodev/mathtiba/actions/workflows/ci.yml)
+
 **We find the misconception, not the score.**
 
 MathTiba is a mathematical misconception & intervention engine for
@@ -128,7 +130,29 @@ mathtiba/
 
 ---
 
-## Run it
+## Deploy
+
+MathTiba is a zero-config Next.js app — no database, no required
+environment variables, no API keys. It deploys to Vercel as-is:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/michaelfrancoodev/mathtiba)
+
+Or manually:
+
+```bash
+npm i -g vercel
+vercel        # first deploy, follow the prompts
+vercel --prod # promote to production
+```
+
+Vercel auto-detects Next.js and builds `npm run build`. The optional
+`engine/verify.py` Python function (see below) deploys alongside it
+automatically via `vercel.json` — if you'd rather not enable Python
+functions on your Vercel project, it is safe to delete `vercel.json`
+and the `engine/` folder entirely; the app uses the TypeScript
+verifiers by default and nothing else references them.
+
+## Run it locally
 
 ```bash
 npm install
