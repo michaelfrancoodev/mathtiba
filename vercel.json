@@ -1,12 +1,8 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
-    "engine/verify.py": { 
-      "runtime": "@vercel/python", 
-      "maxDuration": 10 
+    "api/verify-py.py": {
+      "maxDuration": 10
     }
-  },
-  "rewrites": [
-    { "source": "/api/verify-py", "destination": "/engine/verify" }
-  ]
+  }
 }
-

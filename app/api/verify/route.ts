@@ -16,7 +16,7 @@ import {
 /**
  * Deterministic mathematical verification. No AI/LLM is involved anywhere
  * in this route — every response is computed by exact rational arithmetic.
- * This mirrors engine/verify.py (SymPy), used when the project is deployed
+ * This mirrors api/verify-py.py (SymPy), used when the project is deployed
  * with a Python serverless function; this TS route is the default so that
  * `npm run dev` works with zero external services.
  */

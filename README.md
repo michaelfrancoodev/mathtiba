@@ -190,12 +190,13 @@ mathtiba/
 │   └── storage.ts           localStorage wrapper (single-session MVP, namespaced keys)
 ├── data/                    misconceptions.json, curriculum.json, items.json,
 │                            actions.json, reasons.json, interventions.json
-├── engine/                  parser.py + verify.py — SymPy mirror for Vercel Python deploy
+├── api/verify-py.py,        SymPy mirror for Vercel Python deploy — file-based
+│   api/parser.py            route, auto-detected by Vercel at /api/verify-py
 ├── harness/
 │   ├── simulate.ts          50 simulated students, engineering validation harness
 │   ├── test-engines.ts      40 assertions against the math core
 │   └── test-pipeline.ts     19 assertions against the full data pipeline
-└── vercel.json              wires engine/verify.py to /api/verify-py on Vercel
+└── vercel.json              configures maxDuration for api/verify-py.py
 ```
 
 ---
@@ -216,11 +217,20 @@ vercel --prod # promote to production
 ```
 
 Vercel auto-detects Next.js and builds `npm run build`. The optional
-`engine/verify.py` Python function (see below) deploys alongside it
-automatically via `vercel.json` — if you'd rather not enable Python
-functions on your Vercel project, it is safe to delete `vercel.json`
-and the `engine/` folder entirely; the app uses the TypeScript
-verifiers by default and nothing else references them.
+`api/verify-py.py` Python function (see below) deploys alongside it
+automatically — Vercel's native Python runtime auto-detects any file
+under `api/` as a route (`api/verify-py.py` → `/api/verify-py`), so
+`vercel.json` only needs to set `maxDuration`, not a pinned runtime
+string. (An earlier version of this repo pointed `vercel.json` at
+`engine/verify.py` with `"runtime": "@vercel/python"` — an unversioned
+community-runtime string that Vercel now rejects with *"Function
+Runtimes must have a valid version"*, since Python moved to a native,
+auto-detected runtime. Moving the files into `api/` and dropping the
+manual runtime string fixes this.) If you'd rather not enable Python
+functions on your Vercel project, it is safe to delete `vercel.json`,
+`api/verify-py.py`, `api/parser.py`, and `api/requirements.txt`
+entirely; the app uses the TypeScript verifiers by default and
+nothing else references them.
 
 ## Run it locally
 
@@ -312,12 +322,12 @@ for the full known-limitations list.
 
 `app/api/verify` and `app/api/check-answer` (TypeScript, exact BigInt
 arithmetic) are the verifiers the app actually uses, everywhere,
-including on Vercel — no configuration needed. `engine/verify.py` +
-`engine/parser.py` are provided as a **mirror implementation using
+including on Vercel — no configuration needed. `api/verify-py.py` +
+`api/parser.py` are provided as a **mirror implementation using
 SymPy**, showing the same verification logic in the Python/SymPy
-stack referenced in the original project spec. `vercel.json` deploys
-it as a separate serverless function at `/api/verify-py` if you deploy
-to Vercel; it is not called by the frontend by default, and nothing
+stack referenced in the original project spec. Vercel auto-detects it
+as a native Python function at `/api/verify-py` if you deploy to
+Vercel; it is not called by the frontend by default, and nothing
 breaks if you deploy without Python support.
 
 ## Fonts
