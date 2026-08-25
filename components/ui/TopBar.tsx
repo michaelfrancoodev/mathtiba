@@ -26,6 +26,12 @@ export default function TopBar({
           </>
         )}
         <nav className="ml-6 hidden items-center gap-5 text-xs text-muted sm:flex">
+          <Link href="/topics" className="hover:text-ink">
+            {t("nav.topics")}
+          </Link>
+          <Link href="/classroom" className="hover:text-ink">
+            {t("nav.classroom")}
+          </Link>
           <Link href="/how" className="hover:text-ink">
             {t("nav.how")}
           </Link>

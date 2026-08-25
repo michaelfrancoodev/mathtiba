@@ -24,7 +24,7 @@ export default function Home() {
         </p>
 
         <div className="mt-10 flex items-center gap-5">
-          <ButtonLink href="/diagnostic">
+          <ButtonLink href="/topics">
             {t("home.cta")}
             <span className="ml-2 opacity-70">· {t("home.ctaMeta")}</span>
           </ButtonLink>
