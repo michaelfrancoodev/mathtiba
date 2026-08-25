@@ -12,7 +12,7 @@
     "start": "next start",
     "lint": "eslint",
     "harness": "tsx harness/simulate.ts > harness/results.json && cat harness/results.json",
-    "test": "tsx harness/test-engines.ts && tsx harness/test-pipeline.ts"
+    "test": "tsx harness/test-engines.ts && tsx harness/test-pipeline.ts && tsx harness/test-corpus.ts"
   },
   "dependencies": {
     "next": "16.3.2",
