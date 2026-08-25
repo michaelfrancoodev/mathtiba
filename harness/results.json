@@ -3,7 +3,7 @@
   "noiseRate": 0.08,
   "recoveryRate": 96,
   "falsePositiveRate": 0,
-  "rootCauseAccuracy": 88,
+  "rootCauseAccuracy": 90,
   "medianItemsToDetection": 5,
   "perMisconception": [
     {

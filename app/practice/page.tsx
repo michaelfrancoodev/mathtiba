@@ -1,14 +1,16 @@
 "use client";
-import { useEffect, useMemo, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useEffect, useMemo, useRef, useState, Suspense } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import TopBar from "@/components/ui/TopBar";
-import { Button } from "@/components/ui/Button";
+import { Button, ButtonLink } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Primitives";
 import { useI18n } from "@/lib/i18n";
 import { load, save } from "@/lib/storage";
 import actions from "@/data/actions.json";
 import reasons from "@/data/reasons.json";
 import interventions from "@/data/interventions.json";
+import necta from "@/data/necta-corpus.json";
+import CorpusPractice from "@/components/CorpusPractice";
 import type { Step, ReasonQuality } from "@/lib/types";
 
 type Mode = "equation" | "expression" | "arithmetic";
@@ -23,9 +25,19 @@ type Intervention = {
 const FALLBACK = "EQU-MOVE-FLIP";
 const EQUATION_ACTIONS = new Set(["SUB_BOTH", "ADD_BOTH", "DIV_BOTH", "MUL_BOTH"]);
 
-export default function Practice() {
+function findInterventionForSkill(
+  bank: Record<string, Intervention>,
+  skill: string
+): string | null {
+  const entry = Object.entries(bank).find(([, v]) => v.skill === skill);
+  return entry ? entry[0] : null;
+}
+
+function PracticeInner() {
   const { t, locale } = useI18n();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const topicParam = searchParams.get("topic");
 
   const [target, setTarget] = useState<string>(FALLBACK);
   const [taskIndex, setTaskIndex] = useState(0);
@@ -37,6 +49,7 @@ export default function Practice() {
   const [busy, setBusy] = useState(false);
   const [note, setNote] = useState("");
   const [ready, setReady] = useState(false);
+  const [noContent, setNoContent] = useState(false);
 
   // Hint agent — generative layer, second agent (see app/api/hint). Keyed
   // by step index so each step gets at most one hint request/response.
@@ -51,8 +64,22 @@ export default function Practice() {
   const bank = interventions as unknown as Record<string, Intervention>;
 
   useEffect(() => {
-    const stored = load<string>("targetMisconception");
-    const id = stored && bank[stored] ? stored : FALLBACK;
+    let id: string | null;
+
+    if (topicParam) {
+      // Arrived from /topics?topic=SKILL_ID — practice THAT specific skill,
+      // never silently substitute a different topic's content.
+      id = findInterventionForSkill(bank, topicParam);
+      if (!id) {
+        setNoContent(true);
+        setReady(true);
+        return;
+      }
+    } else {
+      const stored = load<string>("targetMisconception");
+      id = stored && bank[stored] ? stored : FALLBACK;
+    }
+
     const first = bank[id].tasks[0];
     setTarget(id);
     setExpression(first.expression);
@@ -69,7 +96,7 @@ export default function Practice() {
     ]);
     setReady(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [topicParam]);
 
   const mode: Mode = bank[target]?.mode ?? "equation";
   const taskCount = ready ? Math.min(bank[target].tasks.length, 3) : 0;
@@ -255,7 +282,48 @@ export default function Practice() {
     setHints((h) => ({ ...h, [step.index]: text }));
   }
 
-  if (!ready || steps.length === 0) return null;
+  if (!ready) return null;
+
+  if (noContent) {
+    const hasCorpusContent = topicParam
+      ? (necta as { topic: string }[]).some((c) => c.topic === topicParam)
+      : false;
+
+    if (hasCorpusContent && topicParam) {
+      return (
+        <>
+          <TopBar section={t(`skills.${topicParam}`)} />
+          <CorpusPractice topic={topicParam} />
+        </>
+      );
+    }
+
+    return (
+      <>
+        <TopBar section={t("practice.title", { current: 1, total: 1 })} />
+        <main className="mx-auto max-w-xl px-6 py-24 text-center">
+          <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted">
+            {topicParam ? t(`skills.${topicParam}`) : ""}
+          </p>
+          <h1 className="mt-4 text-2xl font-semibold">
+            {locale === "sw"
+              ? "Mazoezi ya mada hii yanapitiwa bado."
+              : "Practice content for this topic is still under review."}
+          </h1>
+          <p className="mt-3 text-sm leading-relaxed text-muted">
+            {locale === "sw"
+              ? "Uchunguzi na ramani ya stadi tayari inashughulikia mada hii — mazoezi ya kina yanaongezwa hatua kwa hatua."
+              : "Diagnosis and the skill map already cover this topic — deep practice tasks are being added incrementally."}
+          </p>
+          <ButtonLink href="/topics" className="mt-6 inline-flex">
+            {locale === "sw" ? "Rudi kwenye mada" : "Back to topics"}
+          </ButtonLink>
+        </main>
+      </>
+    );
+  }
+
+  if (steps.length === 0) return null;
 
   return (
     <>
@@ -460,5 +528,13 @@ export default function Practice() {
         </section>
       </div>
     </>
+  );
+}
+
+export default function Practice() {
+  return (
+    <Suspense fallback={null}>
+      <PracticeInner />
+    </Suspense>
   );
 }
