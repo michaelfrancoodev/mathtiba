@@ -21,6 +21,63 @@ confirm the misconception is actually gone — not just memorized around.
 
 ---
 
+## Full syllabus, not a narrow demo
+
+MathTiba's prerequisite graph covers **28 topics** spanning the entire
+Basic Mathematics 041 syllabus (Form I-IV) — not just a 4-topic
+algebra slice. See `data/curriculum.json` and `/topics`.
+
+Every topic falls into one of three honestly-labeled depth tiers,
+visible in the product itself, not hidden:
+
+1. **Full misconception depth** (8 topics: the original algebra chain)
+   — diagnostic + root-cause tracing + the ACTION+REASON practice
+   workspace + re-test, all deterministic.
+2. **Real NECTA question practice** (15 topics) — practice powered by
+   `data/necta-corpus.json`, a **hand-verified corpus of 20 real
+   questions transcribed from two actual, fetched NECTA CSEE past
+   papers** (2020 and 2023, official `maktaba.tetea.org` PDFs), each
+   citing its exact source and year, with answers independently
+   recomputed and checked (see `harness/test-corpus.ts`, 56/56
+   passing). This is retrieval-grounded, not synthetically generated:
+   `/practice?topic=X` for these topics shows a real, cited past-paper
+   question, not an invented one.
+3. **Diagnosed but content still growing** (remaining topics) — the
+   skill map and root-cause tracing already include them; deep
+   practice content is being added incrementally rather than faked to
+   look complete.
+
+### Why RAG over NECTA papers, not just "yet another AI tutor"
+
+Several existing products already do "AI chatbot + past papers" for
+this exact exam system (Asili Chat, ElimuAI, EduMate Africa target
+Tanzania/NECTA specifically; TopScore AI and SOMANASI target the wider
+East African market). That combination alone is not novel. What none
+of them appear to do is combine real exam-question grounding with
+**misconception-level, evidence-linked diagnosis and independent
+ACTION+REASON grading** — RAG here feeds the diagnostic engine real
+material; it does not replace it with a generic Q&A chatbot.
+
+`lib/rag.ts` is intentionally zero-infrastructure: the corpus ships as
+a static JSON file, not a hosted vector database. Retrieval uses
+Gemini embeddings when `GEMINI_API_KEY` is set, and falls back to a
+deterministic keyword-overlap score otherwise — both paths are tested
+and working, and the code is honest about which one served a given
+result (`method: "embedding" | "keyword"` in every response). The
+keyword fallback is measurably weaker at ranking semantically related
+but differently-worded content than real embeddings would be — that
+limitation is left visible rather than hidden.
+
+One real constraint discovered while building this: **not every NECTA
+PDF is text-extractable**. The 2020 and 2023 Basic Mathematics papers
+have a clean text layer; 2021's does not (it is a scanned image and
+would require OCR, out of scope for this MVP). The ingestion approach
+here — fetch, attempt text extraction, skip and log papers that come
+back as scanned images rather than silently failing — is the honest
+way to scale this corpus further.
+
+---
+
 ## Why this is not just another quiz app
 
 | A normal system | MathTiba |
@@ -153,7 +210,7 @@ buried in a footnote.
 
 ---
 
-## The 7 pages
+## The pages
 
 | Route | Audience | What it shows |
 |---|---|---|
@@ -165,6 +222,8 @@ buried in a footnote.
 | `/retest` | Student | A transfer item — different surface, same underlying misconception, no hints |
 | `/report` | Student & teacher | Before/after, ACTION vs REASON split, cited misconception evidence, resolved/unresolved status |
 | `/validation` | Judges | The engineering validation harness results — recovery rate, false positives, root-cause accuracy, per-misconception recall table, and an honest **Known Limitations** panel |
+| `/topics` | Student | Library of all 28 syllabus topics, foundation to advanced, each showing real item/question counts |
+| `/classroom` | Teacher | Demo-labeled class-level view (illustrative data, not a live multi-student backend in this MVP) |
 
 ---
 
